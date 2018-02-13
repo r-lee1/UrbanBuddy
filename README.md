@@ -16,6 +16,8 @@ Oftentimes, professionals and students need to relocate to new and unfamiliar ar
 ### Wireframes
 Urban Buddy will consist of a single screen with two dropdown menus for the user to select cities of interest.  Below that, are individual displays of information and data for each city, and a display for the comparison chart.
 
+![wireframe](./ub_wireframe.png)
+
 ### Architecture and Technologies
 This application will be built using the following technologies:
 * Vanilla Javascript for overall structure and logic
