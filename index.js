@@ -13,49 +13,100 @@ window.onload = () => {
     return cityScores;
   };
 
-  const updateDataset = (chart, city) => {
+  const updateDataset = (chart, city, title) => {
       let newData = cityData[city].map((score) => score.score_out_of_10);
       chart.data.datasets[0].data = newData;
+
+      let newColors = cityData[city].map((score) => score.color);
+      chart.data.datasets[0].backgroundColor = newColors;
+
+      let newLabels = cityData[city].map((score) => score.name);
+      chart.data.labels = newLabels;
+
+      chart.options.title.text = `${title} - Life Quality Scores`;
+
       chart.update();
+  };
+
+  const updateChart1 = document.getElementById('chart1Selection');
+
+  updateChart1.onchange = function(e) {
+    let city = e.target.value;
+    let titleWords = e.target.value.split(" ");
+    let title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
+    updateDataset(chart1, city, title);
+  };
+
+  const updateChart2 = document.getElementById('chart2Selection');
+
+  updateChart2.onchange = function(e) {
+    let city = e.target.value;
+    let titleWords = e.target.value.split(" ");
+    let title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
+    updateDataset(chart2, city, title);
   };
 
   var ctx = document.getElementById('myChart1').getContext('2d');
 
   var chart1 = new Chart(ctx, {
-      // The type of chart we want to create
       type: 'horizontalBar',
-      // The data for our dataset
       data: {
-          labels: ["Housing", "Cost of Living", "Startups", "Venture Capital", "Travel Connectivity", "Commute", "Business Freedom", "Safety", "Healthcare", "Education", "Environmental Quality", "Economy", "Taxation", "Internet Access", "Leisure & Culture", "Tolerance", "Outdoors"],
+          labels: [],
           datasets: [{
-              label: "Atlanta - Life Quality Scores",
-              backgroundColor: 'rgb(255, 99, 132)',
-              borderColor: 'rgb(255, 99, 132)',
-              data: [
-                cityData["atlanta"][0]["score_out_of_10"],
-                cityData["atlanta"][1]["score_out_of_10"],
-                cityData["atlanta"][2]["score_out_of_10"],
-                cityData["atlanta"][3]["score_out_of_10"],
-                cityData["atlanta"][4]["score_out_of_10"],
-                cityData["atlanta"][5]["score_out_of_10"],
-                cityData["atlanta"][6]["score_out_of_10"],
-                cityData["atlanta"][7]["score_out_of_10"],
-                cityData["atlanta"][8]["score_out_of_10"],
-                cityData["atlanta"][9]["score_out_of_10"],
-                cityData["atlanta"][10]["score_out_of_10"],
-                cityData["atlanta"][11]["score_out_of_10"],
-                cityData["atlanta"][12]["score_out_of_10"],
-                cityData["atlanta"][13]["score_out_of_10"],
-                cityData["atlanta"][14]["score_out_of_10"],
-                cityData["atlanta"][15]["score_out_of_10"],
-                cityData["atlanta"][16]["score_out_of_10"]
-              ]
+              label: "",
+              backgroundColor: [],
+              borderColor: '#fff',
+              data: []
           }]
       },
-      // Configuration options go here
-      options: {}
+      options: {
+        scales: {
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }]
+        },
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: ""
+        }
+      }
   });
 
-  var updateChart1 = document.getElementById('chart1Selection');
-  updateChart1.onchange = function() { updateDataset(chart1, "boston"); };
+  var ctx = document.getElementById('myChart2').getContext('2d');
+
+  var chart2 = new Chart(ctx, {
+      type: 'horizontalBar',
+      data: {
+          labels: [],
+          datasets: [{
+              label: "",
+              backgroundColor: [],
+              borderColor: '#fff',
+              data: []
+          }]
+      },
+      options: {
+        scales: {
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }]
+        },
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: ""
+        }
+      }
+  });
 };
