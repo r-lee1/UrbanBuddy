@@ -1,0 +1,28 @@
+{
+  "name": "urban-buddy",
+  "version": "1.0.0",
+  "description": "### Background and Overview Urban Buddy is a data visualization tool that allows users to look up and compare life quality data between urban cities.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r-lee1/UrbanBuddy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r-lee1/UrbanBuddy/issues"
+  },
+  "homepage": "https://github.com/r-lee1/UrbanBuddy#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "chart.js": "^2.7.1"
+  }
+}
