@@ -114,10 +114,20 @@ window.onload = () => {
             xAxes: [{
                 ticks: {
                     beginAtZero: true,
-                    max: 10
+                    max: 10,
+                    fontSize: 15
                 }
-            }]
+            }],
+            yAxes: [{
+              ticks: {
+                fontSize: 14
+              }
+            }],
+            scaleLabel: {
+              fontSize: 30
+            }
         },
+        maintainAspectRatio: false,
         legend: {
           display: false
         },
@@ -145,10 +155,17 @@ window.onload = () => {
             xAxes: [{
                 ticks: {
                     beginAtZero: true,
-                    max: 10
+                    max: 10,
+                    fontSize: 15
                 }
+            }],
+            yAxes: [{
+              ticks: {
+                fontSize: 14
+              }
             }]
         },
+        maintainAspectRatio: false,
         legend: {
           display: false
         },

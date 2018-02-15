@@ -3,143 +3,132 @@
   <head>
     <meta charset="utf-8">
     <title>UrbanBuddy</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Patua+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script type="text/javascript" src="./bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
+  <nav>
     <h1>UrbanBuddy</h1>
-    <select id="chart1Selection" name="chart1Selection">
-      <option selected="selected">Select a City</option>
-      <option value="albuquerque">Albuquerque</option>
-      <option value="amsterdam">Amsterdam</option>
-      <option value="anchorage">Anchorage</option>
-      <option value="athens">Athens</option>
-      <option value="atlanta">Atlanta</option>
-      <option value="auckland">Auckland</option>
-      <option value="austin">Austin</option>
-      <option value="bali">Bali</option>
-      <option value="bangkok">Bangkok</option>
-      <option value="barcelona">Barcelona</option>
-      <option value="beijing">Beijing</option>
-      <option value="beirut">Beirut</option>
-      <option value="belize-city">Belize City</option>
-      <option value="berlin">Berlin</option>
-      <option value="birmingham">Birmingham</option>
-      <option value="birmingham-al">Birmingham, AL</option>
-      <option value="boise">Boise</option>
-      <option value="boston">Boston</option>
-      <option value="boulder">Boulder</option>
-      <option value="brisbane">Brisbane</option>
-      <option value="bristol">Bristol</option>
-      <option value="brussels">Brussels</option>
-      <option value="budapest">Budapest</option>
-      <option value="buenos-aires">Buenos Aires</option>
-      <option value="buffalo">Buffalo</option>
-      <option value="cairo">Cairo</option>
-      <option value="calgary">Calgary</option>
-      <option value="cambridge">Cambridge</option>
-      <option value="charlotte">Charlotte</option>
-      <option value="chicago">Chicago</option>
-      <option value="cincinnati">Cincinnati</option>
-      <option value="cleveland">Cleveland</option>
-      <option value="copenhagen">Copenhagen</option>
-      <option value="dallas">Dallas</option>
-      <option value="detroit">Detroit</option>
-      <option value="denver">Denver</option>
-      <option value="san francisco bay area">SF Bay Area</option>
-    </select>
-    <div>
-      <div class="chart-container" style="position: relative; height:25vh; width:48vw">
-        <canvas id="myChart1"></canvas>
+  </nav>
+  <main>
+  <div class="cities">
+    <div class="city">
+      <select id="chart1Selection" name="chart1Selection">
+        <option selected="selected">Select a City</option>
+        <option value="albuquerque">Albuquerque</option>
+        <option value="amsterdam">Amsterdam</option>
+        <option value="anchorage">Anchorage</option>
+        <option value="athens">Athens</option>
+        <option value="atlanta">Atlanta</option>
+        <option value="auckland">Auckland</option>
+        <option value="austin">Austin</option>
+        <option value="bali">Bali</option>
+        <option value="bangkok">Bangkok</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="beijing">Beijing</option>
+        <option value="beirut">Beirut</option>
+        <option value="belize-city">Belize City</option>
+        <option value="berlin">Berlin</option>
+        <option value="birmingham">Birmingham</option>
+        <option value="birmingham-al">Birmingham, AL</option>
+        <option value="boise">Boise</option>
+        <option value="boston">Boston</option>
+        <option value="boulder">Boulder</option>
+        <option value="brisbane">Brisbane</option>
+        <option value="bristol">Bristol</option>
+        <option value="brussels">Brussels</option>
+        <option value="budapest">Budapest</option>
+        <option value="buenos-aires">Buenos Aires</option>
+        <option value="buffalo">Buffalo</option>
+        <option value="cairo">Cairo</option>
+        <option value="calgary">Calgary</option>
+        <option value="cambridge">Cambridge</option>
+        <option value="charlotte">Charlotte</option>
+        <option value="chicago">Chicago</option>
+        <option value="cincinnati">Cincinnati</option>
+        <option value="cleveland">Cleveland</option>
+        <option value="copenhagen">Copenhagen</option>
+        <option value="dallas">Dallas</option>
+        <option value="detroit">Detroit</option>
+        <option value="denver">Denver</option>
+        <option value="san francisco bay area">SF Bay Area</option>
+      </select>
+
+      <div>
+        <div class="chart-container">
+          <canvas id="myChart1" class="chart"></canvas>
+        </div>
+        <div id="summary1" class="summary">
+          <p></p>
+        </div>
       </div>
-      <div id="summary1">
+    </div>
+
+    <br />
+    <div class="city">
+      <select id="chart2Selection" name="chart2Selection">
+        <option selected="selected">Select a City</option>
+        <option value="albuquerque">Albuquerque</option>
+        <option value="amsterdam">Amsterdam</option>
+        <option value="anchorage">Anchorage</option>
+        <option value="athens">Athens</option>
+        <option value="atlanta">Atlanta</option>
+        <option value="auckland">Auckland</option>
+        <option value="austin">Austin</option>
+        <option value="bali">Bali</option>
+        <option value="bangkok">Bangkok</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="beijing">Beijing</option>
+        <option value="beirut">Beirut</option>
+        <option value="belize-city">Belize City</option>
+        <option value="berlin">Berlin</option>
+        <option value="birmingham">Birmingham</option>
+        <option value="birmingham-al">Birmingham, AL</option>
+        <option value="boise">Boise</option>
+        <option value="boston">Boston</option>
+        <option value="boulder">Boulder</option>
+        <option value="brisbane">Brisbane</option>
+        <option value="bristol">Bristol</option>
+        <option value="brussels">Brussels</option>
+        <option value="budapest">Budapest</option>
+        <option value="buenos-aires">Buenos Aires</option>
+        <option value="buffalo">Buffalo</option>
+        <option value="cairo">Cairo</option>
+        <option value="calgary">Calgary</option>
+        <option value="cambridge">Cambridge</option>
+        <option value="charlotte">Charlotte</option>
+        <option value="chicago">Chicago</option>
+        <option value="cincinnati">Cincinnati</option>
+        <option value="cleveland">Cleveland</option>
+        <option value="copenhagen">Copenhagen</option>
+        <option value="dallas">Dallas</option>
+        <option value="detroit">Detroit</option>
+        <option value="denver">Denver</option>
+        <option value="san-francisco-bay-area">SF Bay Area</option>
+      </select>
+
+      <div class="chart-container">
+        <canvas id="myChart2" class="chart"></canvas>
+      </div>
+      <div id="summary2" class="summary">
         <p></p>
       </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <select id="chart2Selection" name="chart2Selection">
-      <option selected="selected">Select a City</option>
-      <option value="albuquerque">Albuquerque</option>
-      <option value="amsterdam">Amsterdam</option>
-      <option value="anchorage">Anchorage</option>
-      <option value="athens">Athens</option>
-      <option value="atlanta">Atlanta</option>
-      <option value="auckland">Auckland</option>
-      <option value="austin">Austin</option>
-      <option value="bali">Bali</option>
-      <option value="bangkok">Bangkok</option>
-      <option value="barcelona">Barcelona</option>
-      <option value="beijing">Beijing</option>
-      <option value="beirut">Beirut</option>
-      <option value="belize-city">Belize City</option>
-      <option value="berlin">Berlin</option>
-      <option value="birmingham">Birmingham</option>
-      <option value="birmingham-al">Birmingham, AL</option>
-      <option value="boise">Boise</option>
-      <option value="boston">Boston</option>
-      <option value="boulder">Boulder</option>
-      <option value="brisbane">Brisbane</option>
-      <option value="bristol">Bristol</option>
-      <option value="brussels">Brussels</option>
-      <option value="budapest">Budapest</option>
-      <option value="buenos-aires">Buenos Aires</option>
-      <option value="buffalo">Buffalo</option>
-      <option value="cairo">Cairo</option>
-      <option value="calgary">Calgary</option>
-      <option value="cambridge">Cambridge</option>
-      <option value="charlotte">Charlotte</option>
-      <option value="chicago">Chicago</option>
-      <option value="cincinnati">Cincinnati</option>
-      <option value="cleveland">Cleveland</option>
-      <option value="copenhagen">Copenhagen</option>
-      <option value="dallas">Dallas</option>
-      <option value="detroit">Detroit</option>
-      <option value="denver">Denver</option>
-      <option value="san francisco bay area">SF Bay Area</option>
-    </select>
-
-    <div class="chart-container" style="position: relative; height:25vh; width:48vw">
-      <canvas id="myChart2"></canvas>
-    </div>
-    <div id="summary2">
-      <p></p>
-    </div>
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+  </div>
     <br />
 
-    <div class="chart-container" style="position: relative; height:40vh; width:65vw">
+    <div class="comparison-chart-container">
       <canvas id="comparisonChart"></canvas>
     </div>
-
+  </main>
+  <footer>
+  </footer>
   </body>
 
 </html>
+
+<!-- style="position: relative; height:40vh; width:65vw" -->

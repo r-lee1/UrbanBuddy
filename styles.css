@@ -1,4 +1,55 @@
-h1 {
-  font-size: 36px;
-  color: blue;
+nav {
+  padding: 25px;
+  background-color: #2980b9;
+}
+
+nav h1 {
+  font-size: 60px;
+  color: #fff;
+  font-family: 'Patua One', cursive;
+  font-weight: 700;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 1.5px 1px #535c68;
+}
+
+main {
+  background-color: #ecf0f1;
+  padding: 20px 0;
+}
+.chart-container {
+  width: 45vw;
+  height: 50vh;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+}
+
+.cities {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 650px;
+}
+
+.city {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  height: 500px;
+}
+
+.city select {
+  height: 20px;
+  padding: 10px;
+  border-radius: 0px;
+  border-style: none;
+  outline: none;
+}
+
+.summary p {
+  font-family: 'Montserrat', sans-serif;
 }
