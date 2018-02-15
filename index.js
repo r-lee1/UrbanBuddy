@@ -1,17 +1,25 @@
 import { getCity } from './api_util';
 import Chart from 'chart.js';
-import { cityData } from './city-data';
+// import { cityData } from './city-data';
 
 
 window.onload = () => {
 
-   const getCityScores = (city) => {
-    let cityScores;
-    getCity(city).then((obj) => {
-      cityScores = { [city]: obj.categories };
-      });
-    return cityScores;
+  const cityData = {};  
+
+  const getCityScores = (city) => {
+   return getCity(city)
+   .then((obj) => {
+     cityData[city] = {};
+     cityData[city]["scores"] = obj.categories;
+     cityData[city]["summary"] = obj.summary;
+     console.log(cityData[city]);
+   });
   };
+
+  window.getCity = getCity;
+  window.getCityScores = getCityScores;
+  window.cityData = cityData;
 
   const updateDataset = (chart, city, title) => {
       let newData = cityData[city].map((score) => score.score_out_of_10);
@@ -28,27 +36,58 @@ window.onload = () => {
       chart.update();
   };
 
-  const updateChart1 = document.getElementById('chart1Selection');
+  const updateComparisonDataset1 = (city) => {
+      let newData = cityData[city].map((score) => score.score_out_of_10);
+      comparisonChart.data.datasets[0].data = newData;
+      comparisonChart.data.datasets[0].label = city[0].toUpperCase().concat(city.slice(1));
+      comparisonChart.update();
+  };
 
-  updateChart1.onchange = function(e) {
+  const updateComparisonDataset2 = (city) => {
+      let newData = cityData[city].map((score) => score.score_out_of_10);
+      comparisonChart.data.datasets[1].data = newData;
+      comparisonChart.data.datasets[1].label = city[0].toUpperCase().concat(city.slice(1));
+      comparisonChart.update();
+  };
+
+  const chart1Selection = document.getElementById('chart1Selection');
+
+  chart1Selection.onchange = function(e) {
     let city = e.target.value;
     let titleWords = e.target.value.split(" ");
     let title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
-    updateDataset(chart1, city, title);
+    if (cityData[city]) {
+      updateDataset(chart1, city, title);
+      updateComparisonDataset1(city);
+    } else {
+      getCityScores(city)
+        .then(() => {
+          updateDataset(chart1, city, title);
+          updateComparisonDataset1(city);
+        });
+    }
   };
 
-  const updateChart2 = document.getElementById('chart2Selection');
+  const chart2Selection = document.getElementById('chart2Selection');
 
-  updateChart2.onchange = function(e) {
+  chart2Selection.onchange = function(e) {
     let city = e.target.value;
     let titleWords = e.target.value.split(" ");
     let title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
-    updateDataset(chart2, city, title);
+    if (cityData[city]) {
+      updateDataset(chart2, city, title);
+      updateComparisonDataset2(city);
+    } else {
+      getCityScores(city)
+        .then(() => {
+          updateDataset(chart2, city, title);
+          updateComparisonDataset2(city);
+         });
+    }
   };
 
-  var ctx = document.getElementById('myChart1').getContext('2d');
-
-  var chart1 = new Chart(ctx, {
+  var ctx1 = document.getElementById('myChart1').getContext('2d');
+  var chart1 = new Chart(ctx1, {
       type: 'horizontalBar',
       data: {
           labels: [],
@@ -78,9 +117,8 @@ window.onload = () => {
       }
   });
 
-  var ctx = document.getElementById('myChart2').getContext('2d');
-
-  var chart2 = new Chart(ctx, {
+  var ctx2 = document.getElementById('myChart2').getContext('2d');
+  var chart2 = new Chart(ctx2, {
       type: 'horizontalBar',
       data: {
           labels: [],
@@ -106,6 +144,44 @@ window.onload = () => {
         title: {
           display: true,
           text: ""
+        }
+      }
+  });
+
+  var ctx3 = document.getElementById('comparisonChart').getContext('2d');
+  var comparisonChart = new Chart(ctx3, {
+      type: 'horizontalBar',
+      data: {
+          labels: ["Housing", "Cost of Living", "Startups", "Venture Capital", "Travel Connectivity", "Commute", "Business Freedom", "Safety", "Healthcare", "Education", "Environmental Quality", "Economy", "Taxation", "Internet Access", "Leisure & Culture", "Tolerance", "Outdoors"],
+          datasets: [{
+              label: "",
+              backgroundColor: "rgb(135,206,235)",
+              borderColor: '#f4eb33',
+              data: []
+          },
+          {
+              label: "",
+              backgroundColor: "rgb(250,128,114)",
+              borderColor: '#150e78',
+              data: []
+          }
+        ]
+      },
+      options: {
+        scales: {
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }]
+        },
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: "Comparison Chart"
         }
       }
   });
