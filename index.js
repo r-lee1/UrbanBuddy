@@ -5,7 +5,7 @@ import Chart from 'chart.js';
 
 window.onload = () => {
 
-  const cityData = {};  
+  const cityData = {};
 
   const getCityScores = (city) => {
    return getCity(city)
@@ -13,7 +13,6 @@ window.onload = () => {
      cityData[city] = {};
      cityData[city]["scores"] = obj.categories;
      cityData[city]["summary"] = obj.summary;
-     console.log(cityData[city]);
    });
   };
 
@@ -22,13 +21,13 @@ window.onload = () => {
   window.cityData = cityData;
 
   const updateDataset = (chart, city, title) => {
-      let newData = cityData[city].map((score) => score.score_out_of_10);
+      let newData = cityData[city]["scores"].map((score) => score.score_out_of_10);
       chart.data.datasets[0].data = newData;
 
-      let newColors = cityData[city].map((score) => score.color);
+      let newColors = cityData[city]["scores"].map((score) => score.color);
       chart.data.datasets[0].backgroundColor = newColors;
 
-      let newLabels = cityData[city].map((score) => score.name);
+      let newLabels = cityData[city]["scores"].map((score) => score.name);
       chart.data.labels = newLabels;
 
       chart.options.title.text = `${title} - Life Quality Scores`;
@@ -36,15 +35,23 @@ window.onload = () => {
       chart.update();
   };
 
+  const updateSummary1 = (city) => {
+    $("#summary1").html(cityData[city]["summary"]);
+  };
+
+  const updateSummary2 = (city) => {
+    $("#summary2").html(cityData[city]["summary"]);
+  };
+
   const updateComparisonDataset1 = (city) => {
-      let newData = cityData[city].map((score) => score.score_out_of_10);
+      let newData = cityData[city]["scores"].map((score) => score.score_out_of_10);
       comparisonChart.data.datasets[0].data = newData;
       comparisonChart.data.datasets[0].label = city[0].toUpperCase().concat(city.slice(1));
       comparisonChart.update();
   };
 
   const updateComparisonDataset2 = (city) => {
-      let newData = cityData[city].map((score) => score.score_out_of_10);
+      let newData = cityData[city]["scores"].map((score) => score.score_out_of_10);
       comparisonChart.data.datasets[1].data = newData;
       comparisonChart.data.datasets[1].label = city[0].toUpperCase().concat(city.slice(1));
       comparisonChart.update();
@@ -59,11 +66,13 @@ window.onload = () => {
     if (cityData[city]) {
       updateDataset(chart1, city, title);
       updateComparisonDataset1(city);
+      updateSummary1(city);
     } else {
       getCityScores(city)
         .then(() => {
           updateDataset(chart1, city, title);
           updateComparisonDataset1(city);
+          updateSummary1(city);
         });
     }
   };
@@ -77,11 +86,13 @@ window.onload = () => {
     if (cityData[city]) {
       updateDataset(chart2, city, title);
       updateComparisonDataset2(city);
+      updateSummary2(city);
     } else {
       getCityScores(city)
         .then(() => {
           updateDataset(chart2, city, title);
           updateComparisonDataset2(city);
+          updateSummary2(city);
          });
     }
   };
