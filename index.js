@@ -69,7 +69,14 @@ window.onload = () => {
   chart1Selection.onchange = function(e) {
     let city = e.target.value;
     let titleWords = e.target.value.split("-");
-    let title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
+    let title;
+
+    if (city === "washington-dc") {
+      title = "Washington, D.C";
+    } else {
+      title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
+    }
+
     if (cityData[city]) {
       updateDataset(chart1, city, title);
       updateComparisonDataset1(city);
@@ -89,7 +96,14 @@ window.onload = () => {
   chart2Selection.onchange = function(e) {
     let city = e.target.value;
     let titleWords = e.target.value.split("-");
-    let title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
+    let title;
+
+    if (city === "washington-dc") {
+      title = "Washington, D.C";
+    } else {
+      title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
+    }
+    
     if (cityData[city]) {
       updateDataset(chart2, city, title);
       updateComparisonDataset2(city);
