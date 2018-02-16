@@ -21,19 +21,19 @@ Urban Buddy will consist of a single screen with two dropdown menus for the user
 ### Architecture and Technologies
 This application will be built using the following technologies:
 * Vanilla Javascript for overall structure and logic
-* D3.js for DOM manipulation and rendering
+* Chart.js for DOM manipulation and rendering
 * Teleport Public APIs for city data
 * Webpack for bundling
 
 ### Implementation timeline
 #### Over the weekend:
 - [ ] Brainstorm ideas and complete project proposal
-- [ ] Familiarize self with D3.js
+- [ ] Familiarize self with Chart.js
 
 #### Day 1
 - [ ] Setup project
 - [ ] Test API calls
-- [ ] Use D3.js to render elements to the page
+- [ ] Use Chart.js to render elements to the page
 
 #### Day 2
 - [ ] Create dropdown menus and make sure correct API calls are made
