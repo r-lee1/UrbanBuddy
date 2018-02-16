@@ -12,20 +12,33 @@ nav h1 {
   margin: 0 auto;
   text-align: center;
   text-shadow: 1.5px 1px #535c68;
+  padding-top: 8px;
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   background-color: #ecf0f1;
-  padding: 20px 0;
+  background: fixed;
+  padding: 45px 0;
 }
+
+
 .chart-container {
   width: 45vw;
-  height: 50vh;
+  height: 45vh;
+  margin: 20px 0;
 }
 
 .chart {
   width: 100%;
   height: 100%;
+}
+
+.comparison-chart-container {
+  width: 80vw;
+  height: 90vh;
+  margin: 0 auto;
 }
 
 .cities {
@@ -39,17 +52,45 @@ main {
   display: flex;
   flex-direction: column;
   width: 45%;
-  height: 500px;
+  height: 750px;
 }
 
 .city select {
-  height: 20px;
-  padding: 10px;
+  height: 45px;
+  width: 350px;
+  margin: 15px auto;
+  padding: 5px;
+  border: 1px solid #ecf0f1;
   border-radius: 0px;
   border-style: none;
   outline: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #4bcffa;
 }
 
 .summary p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+footer {
+  height: 75px;
+  background-color: #2980b9;
+}
+
+footer .links {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 15px;
+}
+
+footer a {
+  color: #fff;
+  font-size: 40px;
+  padding: 0 5px;
+  cursor: pointer;
 }

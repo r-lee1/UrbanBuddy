@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>UrbanBuddy</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Patua+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Patua+One" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script type="text/javascript" src="./bundle.js"></script>
@@ -18,7 +19,6 @@
   <div class="cities">
     <div class="city">
       <select id="chart1Selection" name="chart1Selection">
-        <option selected="selected">Select a City</option>
         <option value="albuquerque">Albuquerque</option>
         <option value="amsterdam">Amsterdam</option>
         <option value="anchorage">Anchorage</option>
@@ -34,7 +34,6 @@
         <option value="belize-city">Belize City</option>
         <option value="berlin">Berlin</option>
         <option value="birmingham">Birmingham</option>
-        <option value="birmingham-al">Birmingham, AL</option>
         <option value="boise">Boise</option>
         <option value="boston">Boston</option>
         <option value="boulder">Boulder</option>
@@ -55,23 +54,21 @@
         <option value="dallas">Dallas</option>
         <option value="detroit">Detroit</option>
         <option value="denver">Denver</option>
-        <option value="san francisco bay area">SF Bay Area</option>
+        <option value="san-francisco-bay-area">SF Bay Area</option>
       </select>
 
-      <div>
         <div class="chart-container">
           <canvas id="myChart1" class="chart"></canvas>
         </div>
         <div id="summary1" class="summary">
           <p></p>
         </div>
-      </div>
+
     </div>
 
     <br />
     <div class="city">
       <select id="chart2Selection" name="chart2Selection">
-        <option selected="selected">Select a City</option>
         <option value="albuquerque">Albuquerque</option>
         <option value="amsterdam">Amsterdam</option>
         <option value="anchorage">Anchorage</option>
@@ -87,7 +84,6 @@
         <option value="belize-city">Belize City</option>
         <option value="berlin">Berlin</option>
         <option value="birmingham">Birmingham</option>
-        <option value="birmingham-al">Birmingham, AL</option>
         <option value="boise">Boise</option>
         <option value="boston">Boston</option>
         <option value="boulder">Boulder</option>
@@ -122,13 +118,13 @@
     <br />
 
     <div class="comparison-chart-container">
-      <canvas id="comparisonChart"></canvas>
+      <canvas id="comparisonChart" class="chart"></canvas>
     </div>
   </main>
   <footer>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/roseslee1/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/r-lee1" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
   </footer>
   </body>
-
-</html>
-
-<!-- style="position: relative; height:40vh; width:65vw" -->

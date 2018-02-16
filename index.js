@@ -1,6 +1,5 @@
 import { getCity } from './api_util';
 import Chart from 'chart.js';
-// import { cityData } from './city-data';
 
 
 window.onload = () => {
@@ -15,10 +14,6 @@ window.onload = () => {
      cityData[city]["summary"] = obj.summary;
    });
   };
-
-  window.getCity = getCity;
-  window.getCityScores = getCityScores;
-  window.cityData = cityData;
 
   const updateDataset = (chart, city, title) => {
       let newData = cityData[city]["scores"].map((score) => score.score_out_of_10);
@@ -57,11 +52,23 @@ window.onload = () => {
       comparisonChart.update();
   };
 
+  const getRandomInt = (max) => {
+    return Math.floor(Math.random() * Math.floor(max));
+  };
+
+  const randomCitySelector = (chartSelection) => {
+    let maxIndex = chartSelection.options.length;
+    let index = getRandomInt(maxIndex);
+    chartSelection.options[index].selected = true;
+    let option = chartSelection.options[index];
+    chartSelection.onchange({"target": option});
+  };
+
   const chart1Selection = document.getElementById('chart1Selection');
 
   chart1Selection.onchange = function(e) {
     let city = e.target.value;
-    let titleWords = e.target.value.split(" ");
+    let titleWords = e.target.value.split("-");
     let title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
     if (cityData[city]) {
       updateDataset(chart1, city, title);
@@ -81,7 +88,7 @@ window.onload = () => {
 
   chart2Selection.onchange = function(e) {
     let city = e.target.value;
-    let titleWords = e.target.value.split(" ");
+    let titleWords = e.target.value.split("-");
     let title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
     if (cityData[city]) {
       updateDataset(chart2, city, title);
@@ -120,7 +127,7 @@ window.onload = () => {
             }],
             yAxes: [{
               ticks: {
-                fontSize: 14
+                fontSize: 15
               }
             }],
             scaleLabel: {
@@ -133,7 +140,8 @@ window.onload = () => {
         },
         title: {
           display: true,
-          text: ""
+          text: "",
+          fontSize: 16
         }
       }
   });
@@ -161,7 +169,7 @@ window.onload = () => {
             }],
             yAxes: [{
               ticks: {
-                fontSize: 14
+                fontSize: 15
               }
             }]
         },
@@ -171,7 +179,8 @@ window.onload = () => {
         },
         title: {
           display: true,
-          text: ""
+          text: "",
+          fontSize: 16
         }
       }
   });
@@ -183,13 +192,13 @@ window.onload = () => {
           labels: ["Housing", "Cost of Living", "Startups", "Venture Capital", "Travel Connectivity", "Commute", "Business Freedom", "Safety", "Healthcare", "Education", "Environmental Quality", "Economy", "Taxation", "Internet Access", "Leisure & Culture", "Tolerance", "Outdoors"],
           datasets: [{
               label: "",
-              backgroundColor: "rgb(135,206,235)",
+              backgroundColor: "#5352ed",
               borderColor: '#f4eb33',
               data: []
           },
           {
               label: "",
-              backgroundColor: "rgb(250,128,114)",
+              backgroundColor: "#fed330",
               borderColor: '#150e78',
               data: []
           }
@@ -200,17 +209,28 @@ window.onload = () => {
             xAxes: [{
                 ticks: {
                     beginAtZero: true,
-                    max: 10
+                    max: 10,
+                    fontSize: 16
                 }
+            }],
+            yAxes: [{
+              ticks: {
+                fontSize: 16
+              }
             }]
         },
+        maintainAspectRatio: false,
         legend: {
           display: false
         },
         title: {
           display: true,
-          text: "Comparison Chart"
+          text: "Comparison Between Cities",
+          fontSize: 26
         }
       }
   });
+
+  randomCitySelector(chart1Selection);
+  randomCitySelector(chart2Selection);
 };
