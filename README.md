@@ -27,21 +27,21 @@ This application will be built using the following technologies:
 
 ### Implementation timeline
 #### Over the weekend:
-- [ ] Brainstorm ideas and complete project proposal
-- [ ] Familiarize self with Chart.js
+- [x] Brainstorm ideas and complete project proposal
+- [x] Familiarize self with Chart.js
 
 #### Day 1
-- [ ] Setup project
-- [ ] Test API calls
-- [ ] Use Chart.js to render elements to the page
+- [x] Setup project
+- [x] Test API calls
+- [x] Use Chart.js to render elements to the page
 
 #### Day 2
-- [ ] Create dropdown menus and make sure correct API calls are made
-- [ ] Render a chart in the app
+- [x] Create dropdown menus and make sure correct API calls are made
+- [x] Render a chart in the app
 
 #### Day 3
-- [ ] Render city information and data in the app
-- [ ] Implement comparison chart
+- [x] Render city information and data in the app
+- [x] Implement comparison chart
 
 #### Day 4
-- [ ] Styling to make the app look polished
+- [x] Styling to make the app look polished
