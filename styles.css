@@ -15,14 +15,47 @@ nav h1 {
   padding-top: 8px;
 }
 
+nav h2 {
+  font-size: 13px;
+  color: #fff;
+  font-family: 'Patua One', cursive;
+  font-weight: 400;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 1px 1px #535c68;
+  padding-top: 8px;
+}
+
 main {
   display: flex;
   flex-direction: column;
   background-color: #ecf0f1;
   background: fixed;
-  padding: 45px 0;
+  padding-top: 45px;
 }
 
+.main-p-1 {
+  font-size: 25px;
+  color: #566573;
+  font-family: 'Patua One', cursive;
+  font-weight: 100;
+  width: 850px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+.main-p-2 {
+  font-size: 20px;
+  color: 	#5D6D7E;
+  font-family: 'Patua One', cursive;
+  font-weight: 400;
+  width: 400px;
+  text-align: center;
+  padding-top: 25px;
+}
 
 .chart-container {
   width: 45vw;
@@ -38,7 +71,7 @@ main {
 .comparison-chart-container {
   width: 80vw;
   height: 90vh;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 .cities {
@@ -57,7 +90,7 @@ main {
 
 .city select {
   height: 45px;
-  width: 350px;
+  width: 325px;
   margin: 15px auto;
   padding: 5px;
   border: 1px solid #ecf0f1;
@@ -74,6 +107,12 @@ main {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
   text-align: center;
+}
+
+.comparison {
+  width: 100%;
+  background-color: #EAEDED;
+  padding-bottom: 20px;
 }
 
 footer {
