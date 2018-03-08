@@ -40,11 +40,19 @@ main {
   color: #566573;
   font-family: 'Patua One', cursive;
   font-weight: 100;
-  width: 850px;
+  width: 950px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
+}
+
+.main-p-1 span {
+  font-size: 12px;
+  text-align: right;
+  display: block;
+  padding-top: 10px;
+  font-style: italic;
 }
 
 .main-p-2 {
@@ -58,8 +66,8 @@ main {
 }
 
 .chart-container {
-  width: 45vw;
-  height: 45vh;
+  width: 40vw;
+  height: 50vh;
   margin: 20px 0;
 }
 
@@ -77,8 +85,10 @@ main {
 .cities {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 90%;
   height: 650px;
+  margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 .city {
@@ -104,9 +114,11 @@ main {
 }
 
 .summary p {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 18px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 17px;
+  font-weight: 400;
   text-align: center;
+  letter-spacing: .4px;
 }
 
 .comparison {
