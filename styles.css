@@ -127,6 +127,15 @@ main {
   padding-bottom: 20px;
 }
 
+#ccLegend {
+  position: absolute;
+  height: 15%;
+  width: 15%;
+  background-color: green;
+  left: 85%;
+  margin-top: 15px;
+}
+
 footer {
   height: 75px;
   background-color: #2980b9;

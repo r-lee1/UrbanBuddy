@@ -40,18 +40,27 @@ window.onload = () => {
     $("#summary2").html(cityData[city]["summary"]);
   };
 
-  const updateComparisonDataset1 = (city) => {
+  const ccCity1 = document.getElementById('ccCity1');
+  const ccCity2 = document.getElementById('ccCity2');
+
+  const updateComparisonDataset1 = (city, title) => {
       let newScore = cityData[city]["scores"].map((score) => score.score_out_of_10.toFixed(1));
+      let newLabel = title;
       comparisonChart.data.datasets[0].data = newScore;
-      comparisonChart.data.datasets[0].label = city[0].toUpperCase().concat(city.slice(1));
+      comparisonChart.data.datasets[0].label = newLabel;
       comparisonChart.update();
+
+      ccCity1.textContent = newLabel;
   };
 
-  const updateComparisonDataset2 = (city) => {
+  const updateComparisonDataset2 = (city, title) => {
       let newScore = cityData[city]["scores"].map((score) => score.score_out_of_10.toFixed(1));
+      let newLabel = title;
       comparisonChart.data.datasets[1].data = newScore;
-      comparisonChart.data.datasets[1].label = city[0].toUpperCase().concat(city.slice(1));
+      comparisonChart.data.datasets[1].label = newLabel;
       comparisonChart.update();
+
+      ccCity2.textContent = newLabel;
   };
 
   const getRandomInt = (max) => {
@@ -84,13 +93,13 @@ window.onload = () => {
 
     if (cityData[city]) {
       updateDataset(chart1, city, title);
-      updateComparisonDataset1(city);
+      updateComparisonDataset1(city, title);
       updateSummary1(city);
     } else {
       getCityScores(city)
         .then(() => {
           updateDataset(chart1, city, title);
-          updateComparisonDataset1(city);
+          updateComparisonDataset1(city, title);
           updateSummary1(city);
         });
     }
@@ -111,13 +120,13 @@ window.onload = () => {
 
     if (cityData[city]) {
       updateDataset(chart2, city, title);
-      updateComparisonDataset2(city);
+      updateComparisonDataset2(city, title);
       updateSummary2(city);
     } else {
       getCityScores(city)
         .then(() => {
           updateDataset(chart2, city, title);
-          updateComparisonDataset2(city);
+          updateComparisonDataset2(city, title);
           updateSummary2(city);
          });
     }
@@ -249,6 +258,7 @@ window.onload = () => {
         }
       }
   });
+
 
   randomCitySelector(chart1Selection);
   randomCitySelector(chart2Selection);
