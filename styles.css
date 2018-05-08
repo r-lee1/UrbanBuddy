@@ -129,11 +129,27 @@ main {
 
 #ccLegend {
   position: absolute;
-  height: 15%;
-  width: 15%;
-  background-color: green;
-  left: 85%;
-  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 8%;
+  width: 10%;
+  left: 90%;
+  margin-top: -22px;
+  border: 1px solid #DADDDD
+}
+
+#ccLegend div {
+  height: 50%;
+  font-family: Helvetica;
+  font-size: 15px;
+}
+
+#ccLegend div div {
+  height:18px;
+  width:18px;
+  margin:5px 5px 0 5px;
+  display:inline-block;
 }
 
 footer {
