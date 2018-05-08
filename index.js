@@ -6,6 +6,7 @@ window.onload = () => {
 
   const cityData = {};
 
+//fetch city data from Teleport
   const getCityScores = (city) => {
    return getCity(city)
    .then((obj) => {
@@ -15,6 +16,7 @@ window.onload = () => {
    });
   };
 
+//update charts with data of newly selected city
   const updateDataset = (chart, city, title) => {
       let newData = cityData[city]["scores"].map((score) => score.score_out_of_10);
       chart.data.datasets[0].data = newData;
@@ -56,6 +58,7 @@ window.onload = () => {
     return Math.floor(Math.random() * Math.floor(max));
   };
 
+//select random cities to display onload
   const randomCitySelector = (chartSelection) => {
     let maxIndex = chartSelection.options.length;
     let index = getRandomInt(maxIndex);
@@ -64,6 +67,8 @@ window.onload = () => {
     chartSelection.onchange({"target": option});
   };
 
+
+/* configure charts to be displayed on canvas */
   const chart1Selection = document.getElementById('chart1Selection');
 
   chart1Selection.onchange = function(e) {
@@ -103,7 +108,7 @@ window.onload = () => {
     } else {
       title = titleWords.map( word => word[0].toUpperCase().concat(word.slice(1)) ).join(" ");
     }
-    
+
     if (cityData[city]) {
       updateDataset(chart2, city, title);
       updateComparisonDataset2(city);
