@@ -7,16 +7,6 @@ module.exports = {
     path: path.resolve(__dirname)
   },
   module: {
-    loaders: [
-      {
-        test: [/\.jsx?$/],
-        exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['env']
-        }
-      }
-    ]
   },
   devtool: 'source-map',
   resolve: {

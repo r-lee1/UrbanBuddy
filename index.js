@@ -3,7 +3,7 @@ import Chart from 'chart.js';
 
 
 window.onload = () => {
-
+//collection of cityData
   const cityData = {};
 
 //fetch city data from Teleport
@@ -18,8 +18,8 @@ window.onload = () => {
 
 //update charts with data of newly selected city
   const updateDataset = (chart, city, title) => {
-      let newData = cityData[city]["scores"].map((score) => score.score_out_of_10);
-      chart.data.datasets[0].data = newData;
+      let newScore = cityData[city]["scores"].map((score) => score.score_out_of_10.toFixed(1));
+      chart.data.datasets[0].data = newScore;
 
       let newColors = cityData[city]["scores"].map((score) => score.color);
       chart.data.datasets[0].backgroundColor = newColors;
@@ -41,15 +41,15 @@ window.onload = () => {
   };
 
   const updateComparisonDataset1 = (city) => {
-      let newData = cityData[city]["scores"].map((score) => score.score_out_of_10);
-      comparisonChart.data.datasets[0].data = newData;
+      let newScore = cityData[city]["scores"].map((score) => score.score_out_of_10.toFixed(1));
+      comparisonChart.data.datasets[0].data = newScore;
       comparisonChart.data.datasets[0].label = city[0].toUpperCase().concat(city.slice(1));
       comparisonChart.update();
   };
 
   const updateComparisonDataset2 = (city) => {
-      let newData = cityData[city]["scores"].map((score) => score.score_out_of_10);
-      comparisonChart.data.datasets[1].data = newData;
+      let newScore = cityData[city]["scores"].map((score) => score.score_out_of_10.toFixed(1));
+      comparisonChart.data.datasets[1].data = newScore;
       comparisonChart.data.datasets[1].label = city[0].toUpperCase().concat(city.slice(1));
       comparisonChart.update();
   };
